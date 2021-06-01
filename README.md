@@ -1,5 +1,5 @@
 # Capture-Screen-Recurrent-Application
-Application build instruction: open the .sln file with Visual Studio, you need to use .net5 as framework.
+Application build instruction: open the .sln file with Visual Studio with .net5
 
 A simple application that takes a process name, executable path and screen coordinates, after you input thoose parameter the application will screenshot a given area as long as the input application runs.
 
