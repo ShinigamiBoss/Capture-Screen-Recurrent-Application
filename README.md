@@ -1,7 +1,7 @@
 # Capture-Screen-Recurrent-Application
 Application build instruction: open the .sln file with Visual Studio with .net5
 
-A simple application that takes a process name, executable path and screen coordinates, after you input thoose parameter the application will screenshot a given area as long as the input application runs.
+A simple application that takes a process name, executable path, screen coordinates and capture area size, after you input thoose parameter the application will screenshot a given area as long as the input application runs.
 
 This application is useful for create regular screenshot of an application and or a portion of it.
 
