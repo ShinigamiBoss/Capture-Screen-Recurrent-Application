@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Drawing;
 using System.Diagnostics;
+using System.Drawing;
 using System.Threading;
 
 namespace CaptureApplication
 {
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Insert process name, see task manager details of the running application: ");
             string ProcessName = Console.ReadLine();
@@ -17,32 +17,32 @@ namespace CaptureApplication
 
             int XStart, YStart, AreaX, AreaY, interval;
 
-            Console.WriteLine("Insert capture X coordinate:");
-            while(!int.TryParse(Console.ReadLine(), out XStart)) 
+            Console.WriteLine("Insert capture X start coordinate:");
+            while (!int.TryParse(Console.ReadLine(), out XStart))
             {
                 Console.WriteLine("Please enter a integer number");
             }
-            
-            Console.WriteLine("Insert capture Y coordinate:");
-            while(!int.TryParse(Console.ReadLine(), out YStart))
+
+            Console.WriteLine("Insert capture Y start coordinate:");
+            while (!int.TryParse(Console.ReadLine(), out YStart))
             {
                 Console.WriteLine("Please enter a integer number");
             }
 
             Console.WriteLine("Insert capture area width:");
-            while(!int.TryParse(Console.ReadLine(), out AreaX))
+            while (!int.TryParse(Console.ReadLine(), out AreaX))
             {
                 Console.WriteLine("Please enter a integer number");
             }
 
             Console.WriteLine("Insert capture area heigth:");
-            while(!int.TryParse(Console.ReadLine(), out AreaY))
+            while (!int.TryParse(Console.ReadLine(), out AreaY))
             {
                 Console.WriteLine("Please enter a integer number");
             }
 
             Console.WriteLine("Insert optional time interval in seconds, inter 0 for none:");
-            while(!int.TryParse(Console.ReadLine(), out interval))
+            while (!int.TryParse(Console.ReadLine(), out interval))
             {
                 Console.WriteLine("Please enter a integer number");
             }
@@ -51,13 +51,12 @@ namespace CaptureApplication
 
             int x = 0;
 
-
-            while(Process.GetProcessesByName(ProcessName).Length > 0)
+            while (Process.GetProcessesByName(ProcessName).Length > 0)
             {
                 Image image = ImageCapturer.CaptureScreen(XStart, YStart, 0, 0, CaptureSize);
                 image.Save(Environment.CurrentDirectory + $"\\image{x}.png");
                 Console.WriteLine($"Image {x} caputured");
-                if(interval > 0)
+                if (interval > 0)
                 {
                     Thread.Sleep(interval * 1000);
                 }
@@ -83,6 +82,4 @@ namespace CaptureApplication
             return bmp;
         }
     }
-     
-    
 }
